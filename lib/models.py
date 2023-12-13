@@ -36,3 +36,15 @@ class Task(Base):
             f"due_date='{self.due_date}')>"
         )
 
+
+class Category(Base):
+    __tablename__ = "categories"
+    category_id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, nullable=False)
+    name = Column(String, nullable=False)
+
+    def __repr__(self):
+        return (
+            f"<Category(category_id={self.category_id}, user_id={self.user_id}, "
+            f"name='{self.name}')>"
+        )
