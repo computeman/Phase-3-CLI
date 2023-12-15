@@ -1,18 +1,17 @@
-# db/user_manager.py
+# task_management/managers/user_manager.py
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
-from db.models import User
-from sqlalchemy import create_engine
+from task_management.models.user import User
+from task_management.database import engine
 import bcrypt
 
 class UserManager:
-    def __init__(self, db_url='sqlite:///taskmanager.db'):
-        self.engine = create_engine(db_url)
-        self.Session = sessionmaker(bind=self.engine)
+    def __init__(self):
+        self.Session = sessionmaker(bind=engine)
 
     def signup(self, username, password):
         hashed_password = self._hash_password(password)
-        user = User(username=username, password=hashed_password)
+        user = User(username=username, password_hash=hashed_password)
 
         session = self.Session()
         try:
@@ -27,7 +26,7 @@ class UserManager:
 
     def login(self, username, password):
         user = self._get_user_by_username(username)
-        if user and self._check_password(password, user.password):
+        if user and self._check_password(password, user.password_hash):
             return user
         return None
 
