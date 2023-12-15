@@ -3,9 +3,8 @@ import datetime
 class DueDateManager:
     def __init__(self):
         self.due_dates = {}
-
+ # Define a due date for a task
     def set_due_date(self, task_id, due_date):
-        # Define a due date for a task
         self.due_dates[task_id] = due_date
 
     def get_due_date(self, task_id):
