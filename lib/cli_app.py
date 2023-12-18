@@ -10,6 +10,7 @@ from prioritymanager import SQLAlchemyPriorityManager
 from databasehandler import DatabaseHandler
 from datetime import datetime, timedelta
 from models import Base, Task
+from categorymanager import CategoryManager
 
 DATABASE_URL = "sqlite:///taskmanager.db"
 
@@ -135,6 +136,23 @@ def update_task(task_id, status):
 def delete_task(task_id):
     database_handler = DatabaseHandler(DATABASE_URL)
     database_handler.delete_task(task_id)
+
+
+# CategoryManager Commands
+@cli.command()
+@click.argument("user_id", type=int)
+@click.argument("name")
+def create_category(user_id, name):
+    category_manager = CategoryManager(DATABASE_URL)
+    category_manager.create_category(user_id, name)
+
+
+@cli.command()
+@click.argument("task_id", type=int)
+@click.argument("category_ids", type=int, nargs=-1)
+def assign_task_to_categories(task_id, category_ids):
+    category_manager = CategoryManager(DATABASE_URL)
+    category_manager.assign_task_to_categories(task_id, category_ids)
 
 
 if __name__ == "__main__":
