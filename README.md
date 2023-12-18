@@ -1,6 +1,6 @@
 # Task Management Application
 
-Task Management CLI application is a group project by Anita Class, aimed at providing a streamlined solution for task organization and enhanced productivity. This application offers a user-friendly interface for managing tasks effortlessly. Key features include task creation, categorization, and the assignment of priorities and due dates. Users can log in and utilize a variety of commands for tasks such as creating, updating, and viewing.
+Task Management CLI application is a group project, aimed at providing a streamlined solution for task organization and enhanced productivity. This application offers a user-friendly interface for managing tasks effortlessly. Key features include task creation, categorization, and the assignment of priorities and due dates. Users can log in and utilize a variety of commands for tasks such as creating, updating, and viewing.
 
 ## Table of Contents
 
@@ -56,9 +56,9 @@ It aslo features:
 ## Setup
 
 1. Clone the repository to your local machine.
-2. Install the necessary dependencies by running `pip install -r requirements.txt`.
+2. Install the necessary dependencies by running `pipenv install` and `pipenv shell`.
 3. Initialize the database by running `python init_db.py`.
-4. Run the CLI application using `python cli_app.py`.
+4. Run the CLI application using `python cli_app.py` and the corresponding CLI command.
 
 ## Usage Examples
 
@@ -75,4 +75,24 @@ python cli_app.py set_due_date <task_id> <due_date>
 python cli_app.py get_due_date <task_id>
 
 # ...
+```
+
+## License
+
+MIT Licence
+Copyright (c) 2023 Daudi Mwanzia
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
+Daudi Mwanzia - [DaudiKM - Twitter](https://twitter.com/DaudiKM) - daudimwanzia@gmail.com
+
+Project Link: [https://github.com/computeman/Phase-3-CLI](https://github.com/computeman/Phase-3-CLI)
+
+
+## Acknowledgments
+
+The following are resources that we used.
+- MDN Web Docs
 
